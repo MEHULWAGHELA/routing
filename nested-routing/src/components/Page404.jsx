@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom'
 const Page404 = () => {
     const navigate = useNavigate()
     const Homepage = () => {
-        window.location.reload()/* to reload current page */
-        window.location.href = '/'/* to go to home page or any path  */
-        navigate('/contact')
+        // But above two method refresh the page thats why navigate method use
+        // window.location.reload()/* to reload current page */
+        // window.location.href = '/'/* to go to home page or any path  */
+
+        /* navigate use. in that method page not refresh */
+        navigate('/contact')  /* to go to home page or any path  */
     }
     return (
         <div className='d-flex justify-content-center align-items-center vh-100'>
