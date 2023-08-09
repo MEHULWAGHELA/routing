@@ -1,16 +1,17 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Table from './components/pages/Table';
+import Form from './components/pages/Form';
+import TableComponent from './components/pages/TableComponent';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Navigate to={'/home'} />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/table' element={<Table />} />
+          <Route path='/form' element={<Form />} />
+          <Route path='/' element={<Navigate to={'/form'} />} />
+          <Route path='/table' element={<TableComponent />} />
         </Routes>
       </BrowserRouter>
     </div>
