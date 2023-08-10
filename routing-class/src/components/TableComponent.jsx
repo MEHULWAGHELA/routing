@@ -51,7 +51,7 @@ class TableComponent extends Component {
     }
     render() {
         return (
-            <Container className='my-5'>
+            <Container className='vh-100 pt-5' style={{backgroundColor:'#FCB677'}}>
                 <h1 className='text-center'>Table</h1>
                 <Table
                     bordered

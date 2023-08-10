@@ -1,26 +1,21 @@
 import React, { Fragment, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Col, Row } from 'reactstrap'
-
+import { FaWpforms } from 'react-icons/fa'
+import { BsTable } from 'react-icons/bs'
 const Hoc = (Component) => {
     const NewComponent = () => {
-        let [hello, sethello] = useState()
         let formnavigate = useNavigate()
-        let tablenavigate = useNavigate()
         let formpara = useParams()
-        let tablepara = useParams()
-        const newf = () => {
-            sethello(hello + 1)
-        }
         return (
             <Fragment>
-                <Row>
-                    <Col xs={2} className='bg-info vh-100 d-flex flex-column justify-content-around text-center'>
-                        <Link to='/form' className='border-1 p-3'><button className='btn btn-info-subtle border-danger fs-2' onClick={newf}>Form</button></Link>
-                        <Link to='/table' className='border-1 p-3'><button className='btn btn-info-subtle border-danger fs-2' onClick={newf}>Table</button></Link>
+                <Row className='g-0'>
+                    <Col xs={2} className='vh-100 d-flex flex-column justify-content-around text-center' style={{backgroundColor:'#32064A'}}>
+                        <Link to='/form' className='border-1 p-3 bg-white w-100'><button className='btn btn-info-subtle border-danger fs-2' ><FaWpforms />Form</button></Link>
+                        <Link to='/table' className='border-1 p-3 bg-white w-100'><button className='btn btn-info-subtle border-danger fs-2' ><BsTable />Table</button></Link>
                     </Col>
                     <Col xs={10}>
-                        <Component formnavigate={formnavigate} tablenavigate={tablenavigate} formpara={formpara} tablepara={tablepara} />
+                        <Component formnavigate={formnavigate} formpara={formpara} />
                     </Col>
                 </Row>
             </Fragment>

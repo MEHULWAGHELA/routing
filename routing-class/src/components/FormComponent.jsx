@@ -9,9 +9,10 @@ class FormComponent extends Component {
         this.state = {
             obj: { hobbies: [] },
             arr: [],
-            reference: ''
+            reference: '',
         }
     }
+
     save = (e) => {
         e.preventDefault()
         let formdata = new FormData()
@@ -22,12 +23,11 @@ class FormComponent extends Component {
         formdata.append('hobbies', this.state.obj.hobbies)
         formdata.append('userImage', this.state.obj.image)
         formdata.append('city', this.state.obj.city)
-        console.log(this.state.obj)
         if (this.state.obj._id === undefined) {
             axios.post('https://student-api.mycodelibraries.com/api/user/add', formdata).then((res) => {
                 this.getData()
                 this.setState({ obj: { hobbies: [] }, reference: '' })
-
+                this.props.formnavigate('/table')
             }).catch((err) => { console.log(err) })
         }
         else {
@@ -35,7 +35,7 @@ class FormComponent extends Component {
             axios.post('https://student-api.mycodelibraries.com/api/user/update', formdata).then((res) => {
                 this.getData()
                 this.setState({ obj: { hobbies: [] }, reference: '' })
-
+                this.props.formnavigate('/table')
             }).catch((err) => { console.log(err) })
         }
     }
@@ -48,6 +48,10 @@ class FormComponent extends Component {
     }
     componentDidMount() {
         this.getData()
+        this.setState({ formpara: this.props.formpara })
+        if (Object.values(this.props.formpara).length != 0) {
+            this.editFunction(this.props.formpara.formpara)
+        }
     }
     changeEvent = (e) => {
         if (e.target.name === 'image') {
@@ -87,11 +91,12 @@ class FormComponent extends Component {
 
         })
     }
+
     render() {
         return (
-            <div>
-                <Container className='my-5 border border-1 px-5 border-danger'>
-                    <h1 className='my-2 text-center'>Form</h1>
+            <div className='vh-100'>
+                <Container className='h-100 border border-1 p-5 border-danger g-0' style={{backgroundColor:'#EF8C86'}}>
+                    <h1 className='my-2 text-center py-4'>Form</h1> 
                     <Form className='my-2' onSubmit={this.save}>
                         <Row>
                             <Col xs={6}>
