@@ -1,0 +1,24 @@
+:root {
+  --loadingvalue: none
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.spinner-border {
+  --bs-spinner-width: 100px;
+  --bs-spinner-height: 100px;
+}
+
+#loadicon {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.237);
+  display: var(--loadingvalue);
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
