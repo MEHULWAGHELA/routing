@@ -5,6 +5,7 @@ import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import Service from './components/pages/Service';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Tabview from './components/pages/Tabview';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      {/* <Tabview /> */}
     </div>
   );
 }

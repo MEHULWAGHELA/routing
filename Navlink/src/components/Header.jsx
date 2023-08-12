@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom"
 
 const Header = (Component) => {
@@ -21,8 +21,9 @@ const Header = (Component) => {
             {
                 path: '/Service',
                 text: 'Service'
-            },
+            }
         ]
+
         return (
             <div>
                 {/* this component make multiple times according to how many times hoc call with component. therefore if we want to add style on link then we have to use navlink or we have to check on which path we have and from object which path occur that match then style set on it */}

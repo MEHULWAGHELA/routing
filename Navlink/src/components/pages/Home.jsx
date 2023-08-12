@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header'
 
 const Home = () => {
+    useEffect(() => {
+        /* when we unmount this component then return is call we can do anytask that time*/
+        return () => {
+            console.log("component Unmout");
+        }
+    }, [])
+
     return (
         <div>
             <div>Home</div>
