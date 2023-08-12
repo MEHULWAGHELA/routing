@@ -25,6 +25,7 @@ const Header = (Component) => {
         ]
         return (
             <div>
+                {/* this component make multiple times according to how many times hoc call with component. therefore if we want to add style on link then we have to use navlink or we have to check on which path we have and from object which path occur that match then style set on it */}
                 {console.log(current)}
                 <div className="container-fluid bg-info">
                     <div className='d-flex justify-content-around p-2'>
